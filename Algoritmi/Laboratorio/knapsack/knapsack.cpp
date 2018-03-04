@@ -47,8 +47,8 @@ int main(int argc, char **argv){
 
 int knapsack(int C, vector<int> &P, vector<int> &V, int N, vector< vector<int> > &D){
   int currentMax = 0;
-  for (int i = 1; i < N; i++) {
-    for (int j = 1; j < C; j++) {
+  for (int i = 1; i <= N; i++) {
+    for (int j = 1; j <= C; j++) {
       int nottaken = D[i-1][j];
       int taken = INT_MIN;
       if(j - P[i-1] >= 0){
