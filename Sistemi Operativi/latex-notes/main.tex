@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+
+\usepackage{graphicx}
+\title{Appunti di Sistemi Operativi}
+\author{Jasin Atipi}
+\date{September 2017}
+
+\begin{document}
+
+\maketitle
+
+\section*{1 Marzo 2017}
+\subsection*{Processi e Thread (\href{https://didatticaonline.unitn.it/dol/pluginfile.php/368856/mod_resource/content/1/05-Processi_e_Thread.pdf}{slides})}
+Il processo \`{e} l'istanza di un programma in esecuzione. Il programma \`{e} un concetto statico, il processo \`{e} dinamico. Il processo \`{e} eseguito in modo sequenziale, un'struzione alla volta. In un sistema multiprogrammato i processi evolvono in modo concorrente. Le risorse fisiche e logiche sono limitate. Il S.O. stesso \`{e} un insieme di processi.\\
+Il processo consiste di:\\
+$\bullet$ Istruzioni (sezione Codice o Testo). Parte statica del codice.\\
+$\bullet$ Dati (sezione Dati). Variabili globali.\\
+$\bullet$ Stack. Chiamate a procedura e parametri, variabili locali.\\
+$\bullet$ Heap. Memoria allocata dinamica.\\
+$\bullet$ Attributi (id, stato, controllo).\\
+\\
+\subsubsection*{Attributi (Process Control Block)}
+All'interno del Sistema Operativo ogni processo \`{e} rappresentato dal PCB, che contiene informazioni importanti:\\
+stato del processo, program counter, valori dei registri, finformazioni sulla memoria (registri limite, tabella pagine), informazioni sullo stato dell'I/O (richieste pendenti, file), informazioni sul'utilizzo del sistema (CPU), informazioni di scheduling.\\
+\subsubsection*{Stato di un processo}
+DUrante la sua exec., un processo evolve attraverso diversi stati. Diagrammi di stato diverso dipendentemente dal S.O.\\
+Il processo pu\`{o} essere in exec o non in exec.\\
+\subsubsection*{Scheduling}
+Selezione del processo da eseguire nella CPU al fine di garantire: multiprogrammazione e time-sharing.\\
+Long-term scheduler: seleziona quali processi devono essere trasferiti nella coda dei processi pronti. Ordine dei secondi\\
+Short-term scheduler: seleziona quali sono i prossimi processi ad essere eseguiti ed alloca la CPU. Ordine dei millisecondi\\
+Ogni processo \`{e} inserito in una serie di code: Coda di processi pronti o Coda di un dispositivo.\\
+\subsubsection*{Dispatcher}
+Cambio di contesto: salvataggio PCB del processo che esce e caricamento del PCB del processo che entra.\\
+Passaggio alla modalit\`{a} utente: all'inizio della fase di dispatch il sistema si trova in modalit\`{a} kernel\\
+Salto dell'istruzione da eseguire del processo appena arrivato nella CPU.\\
+Il cambio di contesto (context switching) effettua il passaggio della CPU ad un nuovo processo.
+\subsubsection*{Operazioni sui processi}
+Un processo pu\`{o} creare un figlio. Il figlio ottiene le risorse dal S.O. o dal padre. I tipi di esecuzione sono di tipo sincrona (il padre attende la terminazione dei figli) o asincrona (evoluzione parallela o concorrente di padre e figli).\\
+La creazione di un processo in UNIX avviene in 3 modi:\\
+System call fork: crea un figlio che \`{e} un duplicato del padre.\\
+System call exec: carica sul figlio un programma diverso da quello del padre.\\
+System call wait: per esecuzione sincrona tra padre e figlio.\\
+
+
+
+\end{document}
