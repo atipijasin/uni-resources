@@ -7,8 +7,6 @@
 
 using namespace std;
 
-int sottocres(int N, vector<int> &D);
-
 int main(int argc, char **argv){
 
   ifstream input("input.txt");
@@ -16,33 +14,29 @@ int main(int argc, char **argv){
   int N;
   input >> N;
   vector<int> D;
+  vector<int> D2;
+
   D.resize(N);
+  D2.resize(N);
+  int tmp;
+
   for (int i = 0; i < N; i++) {
-    input >> D[i];
+    input >> tmp;
+    D[i]=D2[i]=tmp;
   }
 
-  int sol = sottocres(N,D);
+  int sol = INT_MIN;
+  for(int i=1; i<N; i++){
+    for (int j=0; j<i; j++){
+      if((D[i] > D[j]) && (D2[j] + D[i] > D2[i])){
+        D2[i]=D2[j]+D[i];
+        if (sol < D2[i]){
+          sol = D2[i];
+        }
+      }
+    }
+  }
   output << sol;
-  cout << sol << endl;
   return 0;
 }
 
-
-int sottocres(int N, vector<int> &D){
-  if (N=0){
-    return D[N];
-  } else if (D[N]>=D[N-1]){
-    a = D[N] + sottocres(N-1, D);
-    b = sottocres(N-1, D);
-    return std::max(a,b);
-  } else {
-    int i = N-1;
-    while(i>=0){
-      if (D[N] >= D[i]){
-        break;
-      }
-      i--;
-    }
-    b = D[N] + sottocres
-  }
-}

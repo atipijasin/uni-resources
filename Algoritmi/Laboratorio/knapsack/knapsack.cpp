@@ -3,7 +3,6 @@
 #include <vector>
 #include <limits.h>
 #include <algorithm>    // std::max
-#lol
 
 using namespace std;
 
