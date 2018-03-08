@@ -8,3 +8,7 @@
 !*/
 
 ### Above combination will ignore all files without extension ###
+/WebProgramming/Excercise01/nbproject/private/
+/WebProgramming/Excercise01/build/
+/WebProgramming/Excercise02/nbproject/private/
+/WebProgramming/Excercise02/build/
