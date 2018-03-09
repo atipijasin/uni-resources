@@ -43,6 +43,94 @@ La creazione di un processo in UNIX avviene in 3 modi:\\
 System call fork: crea un figlio che \`{e} un duplicato del padre.\\
 System call exec: carica sul figlio un programma diverso da quello del padre.\\
 System call wait: per esecuzione sincrona tra padre e figlio.\\
+\section*{8 Marzo 2018}
+\subsection*{Modelli di comunicazione}
+I thread fanno tutti parte di un solo processo (dal punto di vista del kernel),
+mentre dal punto di vista dell'utente i thread sono cose separate.\\
+Solitamente i thread sono molti di pi\`{u} dei processi.\\
+I processi sono due immagini separate nel sistema operativo, ma devono avere
+un modo di poter comunicare. Ci sono due modelli principali di comunicazione fra processi:
+scambio di messaggi (usando il kernel) o memoria condivisa.\\
+La memoria condivisa \`{e} pi`{u} efficiente per\`{o} bisogna
+stare attenti a non far accedere processi non autorizzati a tale memoria.\\
+Il message passaing \`{e} un insieme di meccanismi utilizzati dai processi 
+per comunicare e sincronizzare le loro azioni.\\
+Lo scambio di messaggi consiste nella comunicazione di processi senza condividere 
+variabili.\\
+Le IPC forniscono due operazioni: send - receive.\\
+Se P e Q voglion comunicare, devono: aprire un canale di comunicazione; mandarsi messaggi send/receive.\\
+Il canale di comunicazione \`{e} logico o fisico.\\
+La nominazione (sorgente e destinazione) dipendono dai metodi di comunicazione che possono esserei:\\
+diretto - indiretto.\\
+Nella comunicazione diretta, send - receive devono nominarsi esplicitamente. 
+A sua volta esistono due metodi di comunicazione diretta: simmetrica - asimmetrica.
+Nella simmetrica: send (P1, message) - receive (P2, message). Nella asimmetrica: send(P1, message) - receive (id, message).
+Nella simmetrica i due processi devono conoscersi a vicenda. Nella asimmetrica quando spedisco so a chi spedire, quando ricevo invece non so chi mi sta spedendo
+il messaggio. Esiste uno svantaggio: se un processo cambia nome ci si confonde.\\
+Le comunicazione indirette si basano sul principio:\\
+"All problems in computer science can be solved by another level of inirection".\\
+I messaggi (nella comunicazione indiretta) sono spediti e ricevuti da mailboxes 
+(anche chaiamti porte). Ogni mailbox ha un unico id, i processi possono comunicare solo se condividono una mailbox.\\
+Nelle comunicazioni indirette bisogna avere le seguenti operazioni:\\
+creare una mailbox, send -receive tramite mailbox, eliminare una mailbox.\\
+Condivisione di mailbox:\\
+$P_1, P_2, P_3$ condividono la mailbox $A$.\\
+$P_1, spedisce; P_2 e P_3$ ricevono.\\
+Chi ottiene il messaggio?\\
+SOluzioni:\\
+Permettere ad un canale che sia associato con al pi\`{u} due processi\\
+\\
+Sincronizzazione tra send e receive:\\
+Lo scambio di messaggi pu\`{o} essere bloccante o non bloccante:\\
+Bloccante (sincrono): send bloccate: il mittende si blocca finche il messagio \`{e} stato ricevuto. Riceive bloccante: il ricevente \`{e} bloccato finche il messaggio \`{e} disponibile.\\
+Non-bloccante (asincrono): send non bloccante: il mittente spedisce il messaggio e continua, receive non bloccante: il ricevente riceve un messaggio valido o nulla
+\\
+Memoria condivisa.\\
+Esempio posix: processo prima crea il segmento di memoria condivisa:
+\begin{verbatim}
+segment id = shmget(IPC_PRIVATE, size, S_IRUSR | S_IWUSR);	
+\end{verbatim}
+Il processo che vuole accederci si attacca a questa:
+\begin{verbatim}
+shared memory = (char *) shamt(id, NULL, 0)
+\end{verbatim}
+Ora il processo pu\`{o} scrivere nel segmento condiviso:
+\begin{verbatim}
+sprintf(shared memory, "Writing to shared memory");
+\end{verbatim}
+Quando finito il processo stacca il segmento di memoria:
+\begin{verbatim}
+shmdt(shared memory);
+\end{verbatim}
+Oer rimuovere il segmento di memoria condivisa:
+\begin{verbatim}
+shmctl(shm_id, IPC_RMID, NULL);
+\end{verbatim}
+\subsection*{Scheduling dei processi}
+Lo scheduling \`{e} l'assegnazione di attivit\`{a} nel tempo.\\
+L'utilizzo nella multiprogrammazione impone l'esistenza di una strategia per regolamentare:\\
+1. ammissione dei processi nel sistema (memoria)\\
+2. ammissione dei processi all'esecizione (CPU)\\
+Si divise in tre fasi: pronto (tanti processi) - in esecuzione (un processo solo) - in attesa (tanti processi)\\
+Esistono molte code in cui i processi possono essere nella fase "pronto".\\
+\subsubsection*{Scheduler a lungo e breve termine}
+Lo scheduler a lungo termine (job scheduler) seleziona quali
+processi devono essere portati dalla memoria alla ready queue.\\
+Lo scheduler a breve termine (CPU scheduler) seleziona quale processo
+deve essere eseguito dalla CPU.\\
+Lo scheduler a breve termine \`{e} invocato spesso molto veloce ($O(\mu s)$).
+Es: 100 $ms$ per processo, 10 $ms$ per scheduling. $10/110=9\%$ del tempo
+di CPU sprecato per scheduling.
+Lo scheduler a lungo termine \`{e} invocato pi\`{u} raramente.
+$O(ms)$. Controlla il grado di multiprogrammazione e il mix
+dei processi: I/O-bound: molti I/O, molti brevi burst di CPU.
+CPU-Bound: molti calcoli, pochi lunghi burst di CPU.\\
+Esiste anche lo scheduler a medio termine. S.O. con memoria virtuale prevedono un livello
+intermedio di scheduling (a medio termine).\\
+Per la momentanea rimozione forzata di un processo dalla CPU (serve per ridurre grado)
+multipgrogrammazione.
+
+
 
 
 

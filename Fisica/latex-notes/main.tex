@@ -1,7 +1,9 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
-\title{Appunti di Reti}
+\everymath{\displaystyle}
+
+\title{Appunti di Fisica}
 \author{Jasin Atipi}
 \date{September 2017}
 
@@ -10,6 +12,73 @@
 \maketitle
 
 \section*{2 Marzo 2018}
-\subsection{Cinematica del punto}
+\subsection*{Introduzione - Cinematica del punto}
+Definizione di:\\
+Accuratezza: taratura/calibrazione di uno strumento.\\
+Precisione: risoluzione di uno strumento.
+\subsubsection*{Moto degli oggetti}
+Cominciamo a pensare alla posizione di un punto su una retta (orientata).
+Abbiamo bisogno di un origine e una misura. La misura ci aiuta a definire la distanza di un punto
+dall'origine. Per fare ci\`{o} usiamo un sistema di riferimento (retta) e un
+sistema di misura (metri).\\
+Una domanda importante \`{e}: cosa succede quando il punto si muove?
+Dobbiamo introdurre il concetto di tempo.\\
+Sia $x$ la posizione del punto (m lontano dall'origine) e $t$ il tempo in secondi.\\
+\begin{tabular} {c | c}
+    $t(s)$ & $x(m)$\\
+    \hline
+    0 & 2\\
+    2 & 3,5\\
+    5 & 3
+\end{tabular}
+Questo \`{e} un modo di definire una legge oraria, ovvero un mapping
+$t\to x$, nel caso della tabella \`{e} di tipo discreto (non continuo).\\
+Tutto ci\`{o} lo possiamo rappresentare in un piano cartesiano dove le ascisse
+rappresentano il tempo $t(s)$ e le ordinate rappresentano la distanza dall'origine $x(m)$.\\
+Nel caso della tabella si tratter\`{a} di un grafico discreto.\\
+Un altro modo per defiire una legge oraria \`{e} in maniera analistica (funzione continua), endavremo una posizione definita tramite $x(t)$ ($x$ in funzione del tempo).
+Per esempio $x(t)=22m$ rappresenta un punto fermo nel tempo (sempre 22 $m$).\\
+Un altro esempio \`{e} $x(t)=5t$. Abbiamo un punto che si muove sempre di pi\`{u}
+lontano dall'origine man mano che il tempo passa. In questa maniera so dove si trova 
+continuamente il punto. Il numero 5 ha una dimensione. Dato che il $t$ \`{e}
+espresso in secondi e $x(t)$ \`{e} espresso in metri, il prodotto delle dimensioni
+di $5$ e $t$ deve restituire $m$. Quindi $5$ deve essere rappresentato in $\frac{m}{s}$.\\
+Abbiamo quindi capito che il $5$ \`{e} una velocit\`{a}\\
+Un punto fermo ha sempre velocit\`{a} 0.\\
+Se prendiamo due posizioni $x_1, x_2$, possiamo determinare lo spostamento dell'oggetto
+$\Delta x=x_2-x_1$. Il segno della velocit\`{a} indica se ci si sta spostando "avanti"
+o "indietro" in base al passaggio del tempo.\\
+Una importante osservazione da fare riguardo allo spostamento \`{e} 
+che se si cambia l'origine della retta, lo spostamento di due punti $x_1, x_2$ rimane uguale.\\
+Se usiamo un'origine $O$ in cui $x_1=3 m, x_2=5 m$, possiamo cambiare l'origine 
+in $O'$ dove $x_1= 2m, x_4 = 4m$ e notiamo che $\Delta x= \Delta x' = x_2-x_1 = x_1'-x_2'$.\\
+Questo ci aiuter\`{a} a definire la velocit\`{a} (spostamento nel tmepo).\\
+\begin{tabular} {c | c}
+    $t(s)$ & $x(m)$\\
+    \hline
+    0 & 1\\
+    1 & 2\\
+    4 & 1\\
+    5 & 3,5
+\end{tabular}
+Possiamo dire che dall'istante 0 all'istante 1:\\
+$\Delta x=1m, \Delta t=1s$\\
+Possiamo anche dire che la velocit\`{a} media $\frac{\Delta x}{\Delta t}$\\
+Nel nostro caso quindi la velocit\`{a} media $v_{media}=\frac{1m}{s}$.\\
+La velocit\`{a} in cinematica ha dimensione $[V]=[LT^{-1}]$.\\
+Possiamo calcolare la velocit\`{a} media per una coppia arbitraria di istanti, es:\\
+$t=1$ e $t=4$\\
+$v_{media}=\frac{(1-2)m}{(4-1)s}=-\frac{1m}{3s}\approx 0,33\frac{m}{s}$\\
+Possiamo ricavare che $\Delta x = v_{media}\Delta t$.\\
+\section*{7 Marzo 2018}
+\subsection*{Moto rettilineo uniforme e moto rettilineo variabile}
+La velocit\`{a} pu\`{o} essere caratterizzata in velocit\`{a} media ed istantanea.\\
+$v_{media}=\frac{\Delta x}{\Delta t}$.\\
+$v$ (istantanea) $=\lim_{\Delta t\to 0}\frac{\Delta x}{\Delta t}=\frac{dx}{dt}$ (derivata in rispetto a $t$).\\
+Consideriamo una $v$ costante, allora:\\
+$v_{media}=\frac{\Delta x}{\Delta t} = v$, possiamo allora dire che $\Delta x = v\Delta t$.\\
+Detto ci\`{o}, possiamo fare una legge oraria anche della velocit\`{a}, oltre che della posizione.\\
+Data questa legge oraria, possiamo determinare lo spostamento $\Delta x$ tramite il prodotto $v\cdot \Delta t$, che corrisponde
+all'area sottesa al grafico nell'intervallo di tempo voluto.
 
 \end{document}

@@ -1,10 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.3.2)  5 MAR 2018 16:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.3.2)  8 MAR 2018 16:13
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/home/mughead/github/uni-resources/Sistemi Operativi/latex-notes/main.tex"
-(/home/mughead/github/uni-resources/Sistemi Operativi/latex-notes/main.tex
+**main.tex
+(./main.tex
 LaTeX2e <2017-04-15>
 Babel <3.12> and hyphenation patterns for 3 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -595,34 +594,47 @@ Underfull \hbox (badness 10000) in paragraph at lines 41--46
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 49.
-[2]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 49.
+
+Underfull \hbox (badness 10000) in paragraph at lines 48--90
+
+ []
+
+[2] [3]
+Underfull \hbox (badness 10000) in paragraph at lines 110--116
+
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 137.
+[4]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 137.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 49.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 49.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 137.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 137.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 49.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 137.
  ) 
 Here is how much of TeX's memory you used:
- 5319 strings out of 494931
- 77086 string characters out of 6180852
- 154173 words of memory out of 5000000
- 8593 multiletter control sequences out of 15000+600000
- 7895 words of font info for 28 fonts, out of 8000000 for 9000
+ 5327 strings out of 494931
+ 76974 string characters out of 6180852
+ 158173 words of memory out of 5000000
+ 8595 multiletter control sequences out of 15000+600000
+ 8063 words of font info for 29 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 28i,6n,25p,449b,319s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 28i,6n,25p,382b,356s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (2 pages, 75576 bytes).
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmtt10.pfb>
+Output written on main.pdf (4 pages, 117078 bytes).
 PDF statistics:
- 51 PDF objects out of 1000 (max. 8388607)
- 40 compressed objects within 1 object stream
- 10 named destinations out of 1000 (max. 500000)
+ 76 PDF objects out of 1000 (max. 8388607)
+ 60 compressed objects within 1 object stream
+ 16 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
