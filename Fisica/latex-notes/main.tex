@@ -71,7 +71,7 @@ $t=1$ e $t=4$\\
 $v_{media}=\frac{(1-2)m}{(4-1)s}=-\frac{1m}{3s}\approx 0,33\frac{m}{s}$\\
 Possiamo ricavare che $\Delta x = v_{media}\Delta t$.\\
 \section*{7 Marzo 2018}
-\subsection*{Moto rettilineo uniforme e moto rettilineo variabile}
+\subsection*{Moto rettilineo uniforme e moto rettilineo accellerato}
 La velocit\`{a} pu\`{o} essere caratterizzata in velocit\`{a} media ed istantanea.\\
 $v_{media}=\frac{\Delta x}{\Delta t}$.\\
 $v$ (istantanea) $=\lim_{\Delta t\to 0}\frac{\Delta x}{\Delta t}=\frac{dx}{dt}$ (derivata in rispetto a $t$).\\
@@ -79,6 +79,79 @@ Consideriamo una $v$ costante, allora:\\
 $v_{media}=\frac{\Delta x}{\Delta t} = v$, possiamo allora dire che $\Delta x = v\Delta t$.\\
 Detto ci\`{o}, possiamo fare una legge oraria anche della velocit\`{a}, oltre che della posizione.\\
 Data questa legge oraria, possiamo determinare lo spostamento $\Delta x$ tramite il prodotto $v\cdot \Delta t$, che corrisponde
-all'area sottesa al grafico nell'intervallo di tempo voluto.
+all'area sottesa al grafico nell'intervallo di tempo voluto.\\
+Sia $x-x_0$ lo spostamento, allora $x-x_0=v(t-t_0)$. A questo punto possiamo riscrivere
+l'equazione:\\
+$x(t)=x_0+v(t-t_0)$\\
+A partire dalla posizione iniziale, un oggetto si sposta unofromemente di $v(t-t_0)$,
+ma tale equazione rappresenta una retta ($x_0$ \`{e} l'intercetta)
+e $v$ \`{e} il coefficiente angolare.\\
+Se $t=t_0\Rightarrow x(t_0)=x_0$. Il segno di $v$ indica la direzione del moto.\\
+Es con velocit\`{a} costante:\\
+Due gareggiatori corrono dritti su una pedana a velocit\`{a} diverse\\
+Partenza: $t_0= 0 s, x_0= 0 m$. In questo caso partono nello stesso istante e 
+dalla stessa posizione, quindi vincer\`{a} quello pi\`{u} veloce.\\
+Assumiamo ora che partono da posizioni diverse. Quello pi\`{u} veloce parte da 
+una posizione minore di quello pi\`{u} lento. Date queste assunzioni, vi sar\`{a}
+un momento in cui i due gareggiatori si incontrano.\\
+$x_1(t)=0+v_1 t$ (quello pi\`{u} veloce parte dall'origine)\\
+$x_2(t)=x_v+v_2t$ ($x_v$ vantaggio)\\
+Il sorpasso avviene quando \\$x_1(t_s)=x_2(t_s)$ (sorpasso)\\
+$v_1t_s=x_v+v_2t_s$\\
+$t_s(v_1-v_2)=x_v$\\
+$t_s=\frac{x_v}{v_1-v_2}$\\
+Controlliamo le dimensioni:\\
+$[T]=\frac{[L]}{[LT^{-1}]}=[T]$\\
+Una volta fatti dei ragionamenti per verificare la correttezza
+della formula, possiamo iniziare a mettere dentro i numeri.\\
+Per esempio supponiamo che:\\
+$v_1=5,2m\slash s$\\
+$v_2=2,6m\slash s$\\
+$x_v=12,0 m$\\
+$t_s=\frac{12,0m}{2,4m\slash s}=5,0 s$\\
+Il tempo di sorpasso in questo caso \`{e} 5 secondi.\\
+(Rifare l'esercizio in cui c\`{e} un vantaggio nel tempo.)\\
+\\
+Con velocit\`{a} costante abbiamo le seguenti equazioni:\\
+Posizione: $x(t)=x_0+v(t-t_0)$\\
+Velocit\`{a}: $v(t)=v$ (costante)\\
+La variazione di velocit\`{a} si chiama accelerazione. In un
+istante di tempo $t_1$ abbiamo velocit\`{a} $v_1$ e in un altro istante
+$t_2$ abbiamo $v_2$.\\
+$\frac{\Delta v}{\Delta t}=\frac{v_2-v_1}{t_2-t_1}=v$ media\\
+L'accelerazione ha dimensioni:\\
+$\frac{[V]}{[T]}=[LT^{-2}]$\\
+$a=\lim_{\Delta t\to 0}\frac{\Delta v}{\Delta t}=\frac{dv}{dx}$ (derivata della
+velocit\`{a}).\\
+Dato il grafico di una velocit\`{a} costante, lo spazio percorso
+\`{e} rappresentato dall'area sottesa al grafico (un rettangolo). Si tratta
+quindi dell'integrale:\\
+$\int_{t_0}^{t}v(t) dt$\\
+Dunque abbiamo che la posizione in base alla velocit\`{a} (nel moto rettilineo uniforme) \`{e} ricavabile da:\\
+$x(t)=x_0+\int_{t_0}^{t}v(t) dt$\\
+E la velocit\`{a} in base all'accelerazione \`{e} ricabaile da:\\
+$v(t)=v_0+\int_{t_0}^{t}a(t) dt$\\
+Ma nel moto uniforme accellerato abbiamo che l'accelerazione
+\`{e}' costante, quindi:\\
+$v(t)=v_0+a(t-t_0)$\\
+\section*{9 Marzo 2017}
+Dato un punto che si muove su una retta orientata abbiamo stabilito la 
+posizione, velocit\`{a} e accelerazione (e come passare da una al'altra).\\
+Abbiamo visto il moto rettilineo uniforme, dove $v=$costante, e $x = x_0 + v(t-t_0)$\\
+Poi abbiamo visto il moto uniforme accellerato con velocit\`{a} non costante, ma variabile linearmente, dove $v=v_0+a(t-t_0)$.\\
+Si pu\`{o} ricavare la posizione dall'accelerazione:\\
+$x=x_0+\int_{t_0}^t v(t)dt=x_0+v_0t+\frac{1}{2}at^2$\\
+\subsection*{Caduta libera}
+Nella caduta libera siamo in presenza di un MUA, dove l'accelerazione 
+(terrestre) \`{e} $g=9,8m\slash s$\\
+Sia $y_0=0$ l'origine (quota di partenza) e $a=g$\\
+Sia $H=18m$ la profondit\`{a} di un pozzo. Lasciando cadere un sasso
+in questo pozzo, quanto ci mette a toccare l'acqua in fondo?\\
+Sia $t_c$ il tempo di caduta, allora $H=\frac{1}{2}gt_c^2\Rightarrow 
+t_c=\sqrt{\frac{2H}{g}}$.\\
+Nel nostro caso $H=18,0m$, quindi:\\
+$t_c=\sqrt{\frac{2\cdot 18,0}{9,8}}\approx1,9 s$\\
+
+
 
 \end{document}
