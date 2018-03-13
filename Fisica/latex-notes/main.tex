@@ -1,6 +1,8 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage{mathtools}
+
 \everymath{\displaystyle}
 
 \title{Appunti di Fisica}
@@ -142,6 +144,7 @@ Poi abbiamo visto il moto uniforme accellerato con velocit\`{a} non costante, ma
 Si pu\`{o} ricavare la posizione dall'accelerazione:\\
 $x=x_0+\int_{t_0}^t v(t)dt=x_0+v_0t+\frac{1}{2}at^2$\\
 \subsection*{Caduta libera}
+\subsubsection*{Esempio 1}
 Nella caduta libera siamo in presenza di un MUA, dove l'accelerazione 
 (terrestre) \`{e} $g=9,8m\slash s$\\
 Sia $y_0=0$ l'origine (quota di partenza) e $a=g$\\
@@ -151,7 +154,116 @@ Sia $t_c$ il tempo di caduta, allora $H=\frac{1}{2}gt_c^2\Rightarrow
 t_c=\sqrt{\frac{2H}{g}}$.\\
 Nel nostro caso $H=18,0m$, quindi:\\
 $t_c=\sqrt{\frac{2\cdot 18,0}{9,8}}\approx1,9 s$\\
-
-
-
+\subsubsection*{Esenpio 2}
+Cosa succede quando lancio un oggetto verso l'alto (sulla terra)?\\
+Abbiamo un'accelerazione che \`{e} pari a $-g$ (forza di gravit\`{a}) che agisce
+verso il basso dato che tiro l'oggetto verso l'alto.\\
+Quindi:\\
+$
+\begin{cases}
+a=-gt\\
+v=v_0-gt\\
+y=0+v_0t-\frac{1}{2}gt^2
+\end{cases}
+$
+\\
+L'oggetto \`{e} al "suolo" quando $t=0$ e $t=\frac{2v_0}{g}$ perch\'{e}
+$y=v_0t-\frac{1}{2}gt^2\Leftrightarrow y=t(v_0-\frac{1}{2}gt^2$ (risolvendola per $t$ e mettendola
+$=0$ si trovano le soluzionio in cui vale 0)\\
+La veclocit\`{a} \`{e} a 0 a met\`{a} dei momenti in cui \`{e} al suolo, quindi:\\
+$(0+\frac{2v_0}{g})\frac{1}{2}$\\
+$v_0=0\Leftrightarrow \exists t_m=\frac{v_0}{g}$\\
+Quando torna al suolo la velocit\`{a} \`{e} uguale a $-v_0$\\
+$t_f=\frac{2v_0}{g}$\\
+$v=v_0-g\cdot\frac{2v_0}{g}=-v_0$\\
+L'altezza massima \`{e} quando $t=t_M=\frac{v_0}{g}$\\
+$y=v_0\cdot\frac{v_0}{g}-\frac{1}{2}gv\frac{v_0^2}{g^2}\Leftrightarrow$\\
+$y=\frac{v_0^2}{g}-\frac{1}{2}\frac{v_0^2}{g}=\frac{v_0^2}{2g}$\\
+La dimensione di questa formula \`{e} $[\frac{L^2T^2}{LT^{-2}}=[L]$ che \`{e}
+una lunghezza ed \`{e} ci\`{o} che cerchiamo.\\
+\subsubsection*{Esercizio da fare}
+Si lanciano due oggetti verso l'alto in tempi diversi ma tutto il resto uguale,
+calcolare la formula per determinare il momento in cui si incontrano.\\
+\section*{12 Marzo 2018}
+\subsection*{Cinematica del punto in 2d}
+In 2 dimensioni, un punto si move in un piano cartesiano (assi $x$ e $y$). La posizione
+del punto nel tempo \`{e} definita da un vettore $\vec{r}=(x(t),y(t))$. $\vec{r}$ 
+\`{e} un vettore a 2 componenti (in questo caso).\\
+La lunghezza (o modulo o intensit\`{a}) di $\vec{r}$ si indica con $r$ e corrisponde
+alla lunghezza della freccia che rappresenta $\vec{r}$, o alla distanza del punto rappresentato
+da $\vec{r}$ dall'origine.\\
+$r=\sqrt{x^2+y^2}$.\\
+Quando il punto si sposta, \`{e} come se spostassi la freccia (con coda nell'origine).
+Lo spostamento \`{e} rappresentato anch'esso da una freccia, che parte dalla testa
+della prima freccia (non spostata) e si ferma alla testa della seconda freccia (spostata).
+Tale vettore di spostamento \`{e} indicato e rappresentato da: $\Delta \vec{r}=(\Delta x,\Delta y)$\\
+Ricordiamo che $v_M=\frac{\Delta x}{\Delta t}$. In $2D$, la velocit\`{a} media \`{e} anch'essa un vettore. Ha quindi
+una direzione e una lunghezza, ed \`{e} rappresentata da due componenti: $\vec{v}_M=\frac{\Delta \vec{r}}{\Delta t}=(\frac{\Delta x}{\Delta t},\frac{\Delta y}{\Delta t})$\\
+Tale $v_M$ non ci dice cosa succede in ogni istante del movimento.\\
+Per ottenere la velocit\`{a} in ogni istante del movimento, bisogna eseguire il rapporto
+incrementale su $\vec{r}$.\\
+Ricordiamo che lo spostamento del punto \`{e} rappresentato dallo spostamento del vettore
+da un punto ad un altro che produce un terzo vettore di spostamento $\Delta \vec{r}$.\\
+Facciamo tendere tale $\Delta \vec{r}$ a 0. $\Delta r$ \`{e} il modulo di $\Delta \vec{r}$.\\
+Per $\Delta \vec{r}\to 0$, $\Delta r\to ds$ dove s sta per "strada". La strada $\Delta s$ rappresenta 
+la strada che si percorre dato uno spostamento (mentre $\Delta r$ rappresenta 
+la distanza da un punto all'altro, dato uno spostamento, che in generale non \`{e}
+uguale alla strada percorsa, ma per $\Delta r\to 0$, diventa uguale).\\
+Si pu\`{o} inoltre dimostrare che per $\Delta t\to 0, \Delta \vec{r}$ tende alla
+traiettoria del percorso in un arbitrario momento di tempo.\\
+Abbiamo dunque che per $\Delta t\to 0, \vec{v}_M\to\vec{v}$.\\
+$\vec{v}$ \`{e} la velocit\`{a} vettoriale (velocity), e bisogna differirla dalla 
+velocit\`{a} scalare (speed) $v=\frac{ds}{dt}$\\
+Un fatto importante \`{e} che $\vec{v}$ \`{e} un vettore tangente alla traiettoria
+in un momento arbitrario del movimento del punto.\\
+Si pu\`{o} fare un passo avanti e calcolare anche l'accelerazione, possiamo riprendere
+le nozioni dell'accelerazione in 1D e usarle per rappresentare l'accelerazione in 2D.\\
+Abbiamo che $\vec{a}_M=(\frac{\Delta v_x}{\Delta t}, \frac{\Delta v_y}{\Delta t})=\frac{\Delta \vec{v}}{\Delta t}$\\
+Nasce per\`{o} una nuova idea di accelerazione:\\
+$\vec{a}=\lim_{\Delta t\to 0}\vec{a}_M=\lim_{\Delta t\to 0}\frac{\Delta \vec{v}}{\Delta t}$\\
+Studiamo i seguenti 4 casi:\\
+$a$) Moto rettilineo uniforme (punto che si muove dritto con la stessa velocit\`{a}): abbiamo che l'accelerazione \`{e} doppiamente nulla\\
+$b$) Moto rettilineo non uniforme (punto che si muove dritto con velocit\`{a} variabile): in questo caso l'accelerazione $a\neq 0$ (con $a=|\vec{a}|$) ma
+$\vec{a}=0$.\\
+$c$) Moto curvilineo uniforme (punto che si muove curvando la stessa velocit\`{a}): in questo caso abbiamo che $a=0$ e $\vec{a}\neq 0$\\
+$d$) Modo curvilineo non uniforme (punto che si muove curvando con velocit`{a} variabile): in questo caso entrambe le accelerazioni sono diverse da zero: $a\neq 0, \vec{a}\neq 0$.\\
+Se prendo una traiettoria qualsiasi, e un punto qualsiasi in tale
+traiettoria, $\exists$ un cerchio con raggio $R$ che \`{e} tangente in quel punto. 
+La curvatura in un punto si indica con il reciproco del raggio $\frac{1}{R}$ di tale cerchio.\\
+Ovviamente un cerchio con raggio molto grande indica una curvatura
+assai piccola e viceversa.\\
+Se ci si muove su una curva a forma di cerchio, la curvatura in ogni punto
+\`{e} rappresentata dal cerchio stesso. Se vado a velocit\`{a} $v$ costante, abbiamo che
+$a=0,\vec{a}\neq 0$. In tal caso $\vec{a}$ si chiama accelerazione centripeta
+poich\`{e} in ogni momento il punto cerca di andare verso il centro
+del cerchio. Si pu\`{o} dimostrare l'accelerazione di sterzo si pu\`{o}
+calcolare tramite $\frac{v^2}{R}$.\\
+Abbiamo che:\\
+$\vec{a}=\vec{a}_{tangenziale}+\vec{a}_{centripeta}$ in quasiasi monento.\\
+$|\vec{a}_{tangenziale}|=\frac{dv}{dt}$\\
+$|\vec{a}_{centripeta}|=\frac{v^2}{R}$\\
+Dunque in un qualsiasi momento del moto del punto, abbiamo:\\
+$\vec{v}, \vec{a}_{tangenziale}, \vec{a}_{centripeta}$ e $\vec{a} = \vec{a}_{tangenziale}+ \vec{a}_{centripeta}$\\
+\subsubsection*{Lancio di un oggetto in traiettoria parabolica}
+Un oggetto lanciato in traiettoria parabolica ha un moto orizzontale e verticale
+che si possono separare.\\
+Abbiamo che:\\
+$v_{0x}=v_0\cos\theta$\\
+$v_{0y}=v_0\sin\theta$\\
+Dove $\theta$ \`{e} l'angolo con cui lanciamo l'oggetto.\\
+Studiamo il moto dell'oggetto separando il moto orizzontale da quello verticale:\\
+$x:\\
+a_x=0\\
+v_x=v_{0x}+a_xt=v_{0x}\\
+x=0+v_{0x}t+\frac{1}{2}a_xt^2=v_{0x}t\\
+\\
+y:\\
+a_y=-g\\
+v_y=v_{0y}+a_yt=v_{0y-gt}\\
+y=0+v_{0y}t+\frac{1}{2}a_yt^2=v_{0x}t$
+Sia $t_M$ il momento in cui l'oggetto ha altezza orizzontale massima, sappiamo che:\\
+$t_M=\frac{v_{0y}}{g}$\\
+Allora il tempo totale di volo $t_V=2\frac{v_{0y}}{g}$\\
+Cerchiamo di capire la gittata (quanto va lontano).\\
+$G=v_{0x}t_v$
 \end{document}
