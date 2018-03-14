@@ -265,5 +265,30 @@ Sia $t_M$ il momento in cui l'oggetto ha altezza orizzontale massima, sappiamo c
 $t_M=\frac{v_{0y}}{g}$\\
 Allora il tempo totale di volo $t_V=2\frac{v_{0y}}{g}$\\
 Cerchiamo di capire la gittata (quanto va lontano).\\
-$G=v_{0x}t_v$
+$G=v_{0x}t_v$\\
+Notiamo che la dimensione \`{e} giusta:\\
+$[\frac{L^2T^{-2}}{LT^2}]=[L]$\\
+Possiamo riscrivere la formula della gittata in questo modo:\\
+$\frac{v_0^2\sin\theta\cos\theta}{g}=\frac{v_0^2\sin2\theta}{g}$\\
+Tale formula prende valore massimo (dati velocit\`{a} e accelerazione) quando $\theta=\frac{\pi}{4}=45^\circ$\\
+Possiamo dimostrare che la traiettoria ha forma parabolica:\\
+$\begin{cases}
+x=v_{0x}t\\
+y=v_{0y}t-\frac{1}{2}gt^2
+\end{cases}$\\
+$t=\frac{x_0}{v_{0x}}\Rightarrow y=\frac{v_0y}{v_0x}x-\frac{1}{2}g\frac{x^2}{v_{0x}^2}$\\
+Tale formula \`{e} di forma $Ax+Bx^2$ che rappresenta una parabola.\\
+\subsubsection*{Moto circoferenza di raggio R a velocit\`{a} costante}
+Abbaimo che $\vec{v}$ \`{e} proporzionale al raggio $R$.\\
+La posizione \`{e} rappresentata da $\vec{r}=(x,y)$\\
+Ma per rappresentare la posizione si pu\`{o} anche usare l'angolo $\theta$ e la distanza
+dall'origine ($R$).\\
+Abbiamo quindi che dato un angolo $\theta$:\\
+$x=R\cos\theta$\\
+$y=R\sin\theta$\\
+$v_x=\frac{dx}{dt}=-R\sin\theta\cdot\frac{d\theta}{dt}=-R\omega\sin\theta$\\
+$v_y=\frac{dy}{dt}=R\cos\theta\cdot\frac{d\theta}{dt}=R\omega\cos\theta$\\
+La strada $s$ si ottiene $s=R\theta\Rightarrow\frac{ds}{dt}=v=R\frac{d\theta}{dt}=R\omega$\\
+$s=s_0+vt\Leftrightarrow R\theta=R\theta_0+vt\Leftrightarrow
+\theta=\theta_0+\frac{vt}{R}\Leftrightarrow\theta=\theta_0+\omega t \\(\omega=\frac{v}{R})$
 \end{document}
