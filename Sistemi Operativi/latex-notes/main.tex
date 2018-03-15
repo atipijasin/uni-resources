@@ -129,9 +129,42 @@ Esiste anche lo scheduler a medio termine. S.O. con memoria virtuale prevedono u
 intermedio di scheduling (a medio termine).\\
 Per la momentanea rimozione forzata di un processo dalla CPU (serve per ridurre grado)
 multipgrogrammazione.
-
-
-
+\section*{15 Marzo 2018}
+\subsection*{Scheduling CPU}
+\subsubsection*{Higher Response Ratio Next}
+Algoritmo a priorit\`{a} non-preemptive\\
+Priorit\`{a} (R):\\
+$R=$(t\_attesa+t\_burst) / t\_burst=1+t\_attesa / t\_burst \`{e} maggiore per valori di $R$ pi\`{u} alti\\
+Dipende anche dal tempo di attesa\\
+Va ricalcolata:\\
+al termine di un processo se nel frattempo ne sono arrivati altri oppure
+al termine di un processo.\\
+Sono favoriti i processi che: completano in poco tempo (come Shortest Job First) o hanno atteso molto\\
+Supera il favoritismo di SJF verso job corti.\\
+\subsubsection*{Round robin}
+Scheduling basato su time-out:\\
+A ogni processo viene assegnato una piccola parte (quanto) del tempo di CPU (10-100 ms)\\
+Al termine del quanto, il processo \`{e} prelazionato e messo nella ready queue: la rq \`{e} circolare.\\
+Se ci sono $n$ processi nella coda e il quanto \`{e} $q$:\\
+ogni processo ottiene $1/n$ del tempo di CPU e in blocchi di $q$ unit\`{a} di tempo alla volta\\
+Nessun processo attende pi\`{u} di $(n-1)q$ unit\`{a} di tempo.\\
+Il round robin \`{e} intrisecamente pre-emptive (FCFS con prelazione).\\
+Scelta del quanto:\\
+$q$ grande $\Rightarrow$ FCFS\\
+$q$ piccolo $\Rightarrow$ Attenzione al context switch, troppo overhead. Meglio avere
+$q>> $tempo di context switch.\\
+Valore ragionevole di $q$? Fare in modo che $80\%$ dei burst di CPU siano $<q$\\
+\subsubsection*{Code multilivello}
+Classe di algoritmi in cui la ready queue \`{e} partizionata in pi\`{u} code. Esempio:\\
+Una coda per job in foreground ( o background)\\
+Ogni coda ha il suo algoritmo di scheduling, esempio:\\
+Job in foreground gestiti con RR (o background con FCFS)\\
+\`{e} un meccanismo pi\`{u} generale, ma anche pi\`{u} complesso.\\
+\`{E} necessario uno scheduling tra le code:\\
+Scheduling a priorit\`{a} fissa: Es: servire prima tutti i job di sistemi poi quelli in foreground, possibilit\`{a} di starvatio per code a priorit
+bassa.\\
+Scheduling basato su time slice\\
+w7PnlXxn09su
 
 
 \end{document}
