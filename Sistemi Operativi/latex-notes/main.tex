@@ -1,7 +1,11 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
+\usepackage{xcolor}
 
+\usepackage{listings}
+\usepackage{fancyvrb}
+\fvset{tabsize=1}
 \usepackage{graphicx}
 \title{Appunti di Sistemi Operativi}
 \author{Jasin Atipi}
@@ -11,7 +15,7 @@
 
 \maketitle
 
-\section*{1 Marzo 2017}
+\section*{1 Marzo 2018}
 \subsection*{Processi e Thread (\href{https://didatticaonline.unitn.it/dol/pluginfile.php/368856/mod_resource/content/1/05-Processi_e_Thread.pdf}{slides})}
 Il processo \`{e} l'istanza di un programma in esecuzione. Il programma \`{e} un concetto statico, il processo \`{e} dinamico. Il processo \`{e} eseguito in modo sequenziale, un'struzione alla volta. In un sistema multiprogrammato i processi evolvono in modo concorrente. Le risorse fisiche e logiche sono limitate. Il S.O. stesso \`{e} un insieme di processi.\\
 Il processo consiste di:\\
@@ -110,9 +114,7 @@ shmctl(shm_id, IPC_RMID, NULL);
 Lo scheduling \`{e} l'assegnazione di attivit\`{a} nel tempo.\\
 L'utilizzo nella multiprogrammazione impone l'esistenza di una strategia per regolamentare:\\
 1. ammissione dei processi nel sistema (memoria)\\
-2. ammissione dei processi all'esecizione (CPU)\\
-Si divise in tre fasi: pronto (tanti processi) - in esecuzione (un processo solo) - in attesa (tanti processi)\\
-Esistono molte code in cui i processi possono essere nella fase "pronto".\\
+2. ammissione dei processi all'esecizione (CPU)
 \subsubsection*{Scheduler a lungo e breve termine}
 Lo scheduler a lungo termine (job scheduler) seleziona quali
 processi devono essere portati dalla memoria alla ready queue.\\
@@ -164,7 +166,110 @@ Job in foreground gestiti con RR (o background con FCFS)\\
 Scheduling a priorit\`{a} fissa: Es: servire prima tutti i job di sistemi poi quelli in foreground, possibilit\`{a} di starvatio per code a priorit
 bassa.\\
 Scheduling basato su time slice\\
-w7PnlXxn09su
+citt: w7PnlXxn09su
+\section*{16 Marcio 2018}
+\subsection*{Sincronizzazione dei processi}
+Modello astratto (produttore-consumatore):\\
+Il produttore produce un msg, il consumatore lo consuma. Esecuzione concorrente:\\
+Produttore aggiunge al buffer, consumatore toglie al buffer. Vincoli:\\
+Non posso aggiungere in buffer pieni, e non posso consumare da quelli vuoti.\\
+Abbiamo un buffer circolare di $N$ posizioni: in = prima posiz. libera/out = prima posiz. occupata.\\
+Buffer vuoto: in=out\\
+Buffer pieno: out = (in+1)\%N\\
+Per semplicit\`{a} usiamo una variabile counter per indicare il numero di elementi nel buffer: counter = 0
+buffer vuoto, counter = N buffer pieno.\\
+Il produttore ha un ciclo while che controlla se il buffer \`{e} pieno,
+invece il consumatore ha un ciclo while che controlla se il buffer \`{e} vuoto.\\
+L'operazione di incremento e decremento di counter per\`{o} non \`{e} atomica.
+In assembly servono diverse istruzioni. Bisogna tenere conto dello scheduling, che potrebbe
+"spezzare" l'aggiornamento della variabile di counter, quindi creare problemi.\\
+Il problema \`{e} che il produttore e il consumatore possono modificare counter 
+contemporaneamente. \`{E} importante proteggere l'accesso alla sezione
+critica.\\
+Il sistema di sezione critica deve avere 3 criteri:\\
+Mutex (un processo alla volta pu\`{o} accedere alla sez. critica)\\
+Progresso (Solo i processi che stanno per entrarci possono decidere chi entra, la decisione
+non pu\`{o} essere rimandata all'infinito)\\
+Attesa limitata (deve esistere un massimo numero di volte per cui un processo pu\`{o} aspettare)\\
+Assunzione: sincronizzazione in ambiente globale (condivisione di celle di memoria)\\
+Soluzioni software: aggiunta di codice alle applicazioni, nessun supporto hardware e del S.O.\\
+Soluzioni harwdare: aggiunta di codice alle applicazioni, necessario supporto hardware
+\subsubsection*{Algoritmo 1}
+\begin{Verbatim}
+PROCESS i
+int turn;
+while(1){
+	while(turn != i); /*Sezione di entrata*/
+	sezione critica
+	turn = j;
+	sezione non critica
+}
+\end{Verbatim}
+Questo algoritmo ha dei problemi: richiede stretta alternanza tra processi: se
+i o j non sono interessati ad entrare in SC, anche l'altro processo non pu\`{o}
+entrare in SC. Non rispetta il progresso.
+\subsubsection*{Algoritmo 2}
+\begin{Verbatim}
+PROCESS i
+bool flag[2]; /*inizializzato a FALSE*/
+while(1){
+	flag[i]=true;
+	while(flag[j]==true);
+	sezione critica
+	flag[i]=false;
+	sezione non critica
+}
+\end{Verbatim}
+Questo algoritmo risolve il problema del progresso ma pu\`{o} causare un deadlock
+dato che entrambi i flag possono essere true.
+\subsubsection*{Algoritmo 2 variante}
+\begin{Verbatim}
+PROCESS i
+bool flag[2]; /*inizializzato a FALSE*/
+while(1){
+	while(flag[j]==true);
+	flag[i]=true;
+	sezione critica
+	flag[i]=false;
+	sezione non critica
+}
+\end{Verbatim}
+Qua invece entrambi possono entrare nello stesso momento (no mutex)
+\subsubsection*{Algoritmo 3}
+\begin{Verbatim}
+PROCESS i
+int turn;
+bool flag[2]; /*inizializzato a FALSE*/
+while(1){
+	flag[i]=true;
+	turn = j;
+	while(flag[j] == true && turn == j);
+	sezione critica
+	flag[i]=false;
+	sezione non critica
+}
+\end{Verbatim}
+In questo algoritmi tutti e 3 i criteri sono soddisfatti e funziona
+\subsubsection*{Soluzione per N processi, Algoritmo del fornaio}
+\begin{Verbatim}
+PROCESS i
+bool choosing[N];
+int number[N];
 
+while(1){
+	choosing[i]=TRUE;
+	number[i]=Max(number[0]...number[N-1])+1;
+	choosing[i]=FALSE;
+	for(j=0; j<N; j++){
+		while(choosing[j]==TRUE);
+		while(number[j]!=0 && number[j]<number[i]);
+	}
+	//sezione critica
+	number[i]=0;
+	//sezione non critica
+}
+\end{Verbatim}
+
+\section*{22 Marzo 2018}
 
 \end{document}
