@@ -1,29 +1,75 @@
-# Ignore all
-*
 
-# Unignore all with extensions
-!*.*
+# Created by https://www.gitignore.io/api/c++,text,windows
+# Edit at https://www.gitignore.io/?templates=c++,text,windows
 
-# Unignore all dirs
-!*/
+### C++ ###
+# Prerequisites
+*.d
 
-### Above combination will ignore all files without extension ###
-/WebProgramming/Excercise01/nbproject/private/
-/WebProgramming/Excercise01/build/
-/WebProgramming/Excercise02/nbproject/private/
-/WebProgramming/Excercise02/build/
-/WebProgramming/LoginPage/nbproject/private/
-/WebProgramming/LoginPage/build/
-/WebProgramming/LoginPage/dist/
-/WebProgramming/Excercise02/dist/
-/WebProgramming/Excercise01/dist/
-/WebProgramming/ProfessorExcercises/Exercises/Example01/build/
-/WebProgramming/ProfessorExcercises/Exercises/Example01/dist/
-/WebProgramming/ProfessorExcercises/Exercises/Example01/nbproject/private/
-/WebProgramming/ProfessorExcercises/Exercises/Exercise01/build/
-/WebProgramming/ProfessorExcercises/Exercises/Exercise01/nbproject/private/
-/WebProgramming/ProfessorExcercises/Lab04/Example01/build/
-/WebProgramming/ProfessorExcercises/Lab04/Example01/dist/
-/WebProgramming/ProfessorExcercises/Lab04/Example01/nbproject/private/
-/WebProgramming/ProfessorExcercises/Lab04/Exercise01/build/
-/WebProgramming/ProfessorExcercises/Lab04/Exercise01/nbproject/private/
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+### Text ###
+*.doc
+*.docx
+*.log
+*.msg
+*.pages
+*.rtf
+*.txt
+*.wpd
+*.wps
+
+### Windows ###
+# Windows thumbnail cache files
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# End of https://www.gitignore.io/api/c++,text,windows
